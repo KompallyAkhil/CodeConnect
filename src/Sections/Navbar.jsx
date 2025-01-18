@@ -6,6 +6,7 @@ const Navbar = () => {
                 <div className="container flex h-16 items-center justify-between px-4 mx-auto">
                     <h1 className="text-xl ml-6 font-bold">Code Connect</h1>
                     <div className="flex gap-10 font-bold text-primary hover:cursor-pointer">
+                        <p>Home</p>
                         <p>Community</p>
                         <p>Features</p>
                     </div>
