@@ -2,14 +2,16 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Meteors } from "@/components/ui/meteors";
+import { Features } from "./Feartues";
+import { Link } from "react-router-dom";
 export const Home = () => {
     return (
         <>
             <div className="relative flex h-[525px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border ">
-                <Meteors number={40} />
+                <Meteors number={30} />
                 <span className="whitespace-pre-wrap bg-gradient-to-b">
                     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-b from-background to-background/50 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-background to-background/10 pointer-events-none" />
                         <div className="container relative z-10 px-4 py-32 mx-auto text-center">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -48,10 +50,12 @@ export const Home = () => {
                                     transition={{ delay: 0.9 }}
                                     className="flex flex-col sm:flex-row gap-4 justify-center"
                                 >
-                                    <Button size="lg" className="group">
-                                        Get Started
-                                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                    </Button>
+                                    <Link to="/community">
+                                        <Button size="lg" className="group">
+                                            Get Started
+                                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                        </Button>
+                                    </Link>
                                     <Button size="lg" variant="outline">
                                         Learn More
                                     </Button>
@@ -61,6 +65,7 @@ export const Home = () => {
                     </section>
                 </span>
             </div>
+            <Features />
         </>
     );
 };
