@@ -22,14 +22,8 @@ export const Home = () => {
                         >
                             The Future of Code Collaboration
                         </motion.span>
-                        <motion.h1
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="text-4xl md:text-6xl font-bold tracking-tight"
-                        >
-                            Connect. Code. Create.
-                        </motion.h1>
+                        
+                        <TextAnimate animation="slideUp" by="word" className="text-4xl md:text-6xl font-bold tracking-tight">Connect. Code. Create</TextAnimate>
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
