@@ -40,10 +40,10 @@ const languages = [
   }
 ];
 const Community = () => {
-    return (
-        <section className="py-24 bg-muted/30">
+  return (
+    <section className="py-24 bg-muted/30">
       <div className="container px-4 mx-auto">
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-14">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,11 +63,11 @@ const Community = () => {
             Connect with millions of developers across different programming languages
           </motion.p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6">
           {languages.map((language, index) => (
             <motion.div
               key={language.name}
-              
+
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -84,16 +84,15 @@ const Community = () => {
                   <span className="text-sm text-muted-foreground">{language.users} users</span>
                 </div>
                 <div className="flex justify-between ">
-                    <p className="text-sm text-muted-foreground">{language.description}</p>
-                    <Button className= {`${language.color} hover:bg-${language.color}`}>Join Now</Button>
+                  <p className="text-sm text-muted-foreground">{language.description}</p>
+                  <Button  className={`${language.color} hover:bg-${language.color}`}>Join Now</Button>
                 </div>
-              
               </div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-    )
+  )
 }
 export default Community;

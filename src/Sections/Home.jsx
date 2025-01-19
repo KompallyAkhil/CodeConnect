@@ -50,13 +50,13 @@ export const Home = () => {
                                     transition={{ delay: 0.9 }}
                                     className="flex flex-col sm:flex-row gap-4 justify-center"
                                 >
-                                    <Link to="/community">
-                                        <Button size="lg" className="group">
+                                    <Button asChild size="lg" className="group">
+                                        <Link to="/community">
                                             Get Started
                                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                        </Button>
-                                    </Link>
-                                    <Button size="lg" variant="outline">
+                                        </Link>
+                                    </Button>
+                                    <Button size="lg" variant="outline" className="group">
                                         Learn More
                                     </Button>
                                 </motion.div>
