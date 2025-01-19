@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Discuss from "./Discussion";
+
+
 const languages = [
   {
     name: "Python",
@@ -41,6 +44,7 @@ const languages = [
 ];
 const Community = () => {
   return (
+    <>
     <section className="py-24 bg-muted/30">
       <div className="container px-4 mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-14">
@@ -50,7 +54,7 @@ const Community = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-3xl font-bold tracking-tight mb-4"
-          >
+            >
             Join Our Community
           </motion.h2>
           <motion.p
@@ -59,7 +63,7 @@ const Community = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-muted-foreground"
-          >
+            >
             Connect with millions of developers across different programming languages
           </motion.p>
         </div>
@@ -85,7 +89,7 @@ const Community = () => {
                 </div>
                 <div className="flex justify-between ">
                   <p className="text-sm text-muted-foreground">{language.description}</p>
-                  <Button  className={`${language.color} hover:bg-${language.color}`}>Join Now</Button>
+                  <Button  className={`${language.color} hover:bg-${language.color}`}>Discuss Now</Button>
                 </div>
               </div>
             </motion.div>
@@ -93,6 +97,8 @@ const Community = () => {
         </div>
       </div>
     </section>
+    <Discuss/>
+    </>
   )
 }
 export default Community;
