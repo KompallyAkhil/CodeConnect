@@ -3,10 +3,11 @@ import { useCreateChatClient, Chat, Channel, ChannelHeader, MessageInput, Messag
 
 import 'stream-chat-react/dist/css/v2/index.css';
 
-const apiKey = 'dz5f4d5kzrue';
-const userId = 'floral-hill-7';
-const userName = 'floral';
-const userToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZmxvcmFsLWhpbGwtNyIsImV4cCI6MTczNzI4MzAyMX0.qOrHPzdA-hvnPWNIac1EvC0krd4biXcHfp16yhrHuQg';
+const apiKey = 'ygr3ckp5mjtw';
+const userId = 'Akhil';
+const userName = 'Bunny';
+const userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiQWtoaWwifQ.QqtZPYMlslQVXXhEOQ-QMU6yGpFDzTMthkqjr_F2JCU";
+
 
 const user = {
   id: userId,
