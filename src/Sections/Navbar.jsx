@@ -1,5 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { Link } from 'react-router-dom'
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
 const Navbar = () => {
     return (
         <>
@@ -14,7 +22,21 @@ const Navbar = () => {
                             <p>Communities</p>
                         </Link>
                     </div>
-                    <Button>Sign In</Button>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button>Sign In</Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Are you absolutely sure?</DialogTitle>
+                                <DialogDescription>
+                                    This action cannot be undone. This will permanently delete your account
+                                    and remove your data from our servers.
+                                </DialogDescription>
+                            </DialogHeader>
+                        </DialogContent>
+                    </Dialog>
+
                 </div>
             </nav>
         </>

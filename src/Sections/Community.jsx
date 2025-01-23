@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Discuss from "./Discussion";
-
-
 const languages = [
   {
     name: "Python",
@@ -71,7 +69,6 @@ const Community = () => {
           {languages.map((language, index) => (
             <motion.div
               key={language.name}
-
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -89,7 +86,7 @@ const Community = () => {
                 </div>
                 <div className="flex justify-between ">
                   <p className="text-sm text-muted-foreground">{language.description}</p>
-                  <Button  className={`${language.color} hover:bg-${language.color}`}>Discuss Now</Button>
+                  <Button className={`${language.color} hover:${language.color}`}>Discuss Now</Button>
                 </div>
               </div>
             </motion.div>

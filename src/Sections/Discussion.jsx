@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useCreateChatClient, Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window } from 'stream-chat-react';
-
 import 'stream-chat-react/dist/css/v2/index.css';
+
 
 const apiKey = 'ygr3ckp5mjtw';
 const userId = 'Akhil';
