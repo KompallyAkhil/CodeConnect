@@ -7,7 +7,9 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
+
+import Page from "../app/login/page";
 const Navbar = () => {
     return (
         <>
@@ -16,7 +18,7 @@ const Navbar = () => {
                     <h1 className="text-xl ml-6 font-bold">CodeConnect</h1>
                     <div className="flex gap-10 font-bold text-primary">
                         <Link to="/" >
-                            <p >Home</p>
+                            <p>Home</p>
                         </Link>
                         <Link to="/community">
                             <p>Communities</p>
@@ -28,12 +30,8 @@ const Navbar = () => {
                         </DialogTrigger>
                         <DialogContent>
                             <DialogHeader>
-                                <DialogTitle>Are you absolutely sure?</DialogTitle>
-                                <DialogDescription>
-                                    This action cannot be undone. This will permanently delete your account
-                                    and remove your data from our servers.
-                                </DialogDescription>
                             </DialogHeader>
+                            <Page/>
                         </DialogContent>
                     </Dialog>
 
