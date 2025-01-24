@@ -8,8 +8,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-
-import Page from "../app/login/page";
+import Login from "./Login";
 const Navbar = () => {
     return (
         <>
@@ -29,9 +28,7 @@ const Navbar = () => {
                             <Button>Sign In</Button>
                         </DialogTrigger>
                         <DialogContent>
-                            <DialogHeader>
-                            </DialogHeader>
-                            <Page/>
+                           <Login/>
                         </DialogContent>
                     </Dialog>
 
