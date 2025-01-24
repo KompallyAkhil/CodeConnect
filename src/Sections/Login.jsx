@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Mail, Key } from "lucide-react";
+import { User, Mail, Key } from "lucide-react"
+import { Button } from "@/components/ui/button"
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +17,7 @@ const Login = () => {
                         className="bg-white rounded-xl shadow-sm border border-gray-100 p-8"
                     >
                         <div className="text-center mb-8">
-                            <h1 className="text-2xl font-medium tracking-tight text-gray-900">
+                            <h1 className="text-2xl font-bold tracking-tight text-gray-900">
                                 {isLogin ? "Welcome back" : "Create account"}
                             </h1>
                             <p className="mt-2 text-sm text-gray-500">
@@ -77,11 +78,12 @@ const Login = () => {
                                     />
                                 </div>
 
-                                <button
+                                <Button
                                     type="submit"
                                     disabled={isLoading}
                                     onClick={(e)=> console.log("Clicked")}
-                                    className="w-full bg-gray-900 text-white rounded-lg px-4 py-2.5 font-medium hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full"
+                                    size="lg" 
                                 >
                                     {isLoading ? (
                                         <motion.div
@@ -101,14 +103,13 @@ const Login = () => {
                                     ) : (
                                         "Create account"
                                     )}
-                                </button>
+                                </Button>
                             </motion.form>
                         </AnimatePresence>
-
                         <div className="mt-6 text-center">
                             <button
                                 onClick={() => setIsLogin(!isLogin)}
-                                className="text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                                className="text-sm text-gray-500 hover:text-black transition-colors duration-200"
                             >
                                 {isLogin
                                     ? "Don't have an account? Sign up"

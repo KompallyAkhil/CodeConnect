@@ -8,14 +8,21 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import logo from "./LightMode.png"
 import Login from "./Login";
 const Navbar = () => {
     return (
         <>
             <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                 <div className="container flex h-16 items-center justify-between px-4 mx-auto">
-                    <h1 className="text-xl ml-6 font-bold">CodeConnect</h1>
-                    <div className="flex gap-10 font-bold text-primary">
+                    <div>
+                        <div className="flex items-center">
+                            <img className="w-10 h-10" src={logo} />
+                            <h1 className="text-2xl ml-2 font-bold">CodeConnect</h1>
+                        </div>
+                    </div>
+
+                    <div className="flex gap-10  font-bold text-primary">
                         <Link to="/" >
                             <p>Home</p>
                         </Link>
@@ -28,7 +35,7 @@ const Navbar = () => {
                             <Button>Sign In</Button>
                         </DialogTrigger>
                         <DialogContent>
-                           <Login/>
+                            <Login />
                         </DialogContent>
                     </Dialog>
 
