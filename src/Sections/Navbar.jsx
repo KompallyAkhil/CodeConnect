@@ -8,9 +8,48 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+    Cloud,
+    CreditCard,
+    Github,
+    Keyboard,
+    LifeBuoy,
+    LogOut,
+    Mail,
+    MessageSquare,
+    Plus,
+    PlusCircle,
+    Settings,
+    User,
+    UserPlus,
+    Users,
+} from "lucide-react"
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { useState } from "react";
 import logo from "./LightMode.png"
 import Login from "./Login";
+import { useLogin } from "./Context";
 const Navbar = () => {
+    const { login, setLogin } = useLogin();
+    console.log(login);
+
+    const handleLogout = () => {
+        setLogin(false);
+        window.location.reload();
+    }
     return (
         <>
             <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -30,15 +69,106 @@ const Navbar = () => {
                             <p>Communities</p>
                         </Link>
                     </div>
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button>Sign In</Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <Login />
-                        </DialogContent>
-                    </Dialog>
 
+
+                    {!login ? (
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button>Sign In</Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <Login />
+                            </DialogContent>
+                        </Dialog>
+
+                    ) : (
+                        <DropdownMenu align="end">
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline">Open</Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="w-56">
+                                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuGroup>
+                                    <DropdownMenuItem>
+                                        <User />
+                                        <span>Profile</span>
+                                        <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <CreditCard />
+                                        <span>Billing</span>
+                                        <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <Settings />
+                                        <span>Settings</span>
+                                        <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <Keyboard />
+                                        <span>Keyboard shortcuts</span>
+                                        <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+                                    </DropdownMenuItem>
+                                </DropdownMenuGroup>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuGroup>
+                                    <DropdownMenuItem>
+                                        <Users />
+                                        <span>Team</span>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuSub>
+                                        <DropdownMenuSubTrigger>
+                                            <UserPlus />
+                                            <span>Invite users</span>
+                                        </DropdownMenuSubTrigger>
+                                        <DropdownMenuPortal>
+                                            <DropdownMenuSubContent>
+                                                <DropdownMenuItem>
+                                                    <Mail />
+                                                    <span>Email</span>
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem>
+                                                    <MessageSquare />
+                                                    <span>Message</span>
+                                                </DropdownMenuItem>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem>
+                                                    <PlusCircle />
+                                                    <span>More...</span>
+                                                </DropdownMenuItem>
+                                            </DropdownMenuSubContent>
+                                        </DropdownMenuPortal>
+                                    </DropdownMenuSub>
+                                    <DropdownMenuItem>
+                                        <Plus />
+                                        <span>New Team</span>
+                                        <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+                                    </DropdownMenuItem>
+                                </DropdownMenuGroup>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>
+                                    <Github />
+                                    <span>GitHub</span>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <LifeBuoy />
+                                    <span>Support</span>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem disabled>
+                                    <Cloud />
+                                    <span>API</span>
+                                </DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem onClick={handleLogout}>
+                                    <LogOut />
+                                    <span >Log out</span>
+                                    <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+
+                    )}
                 </div>
             </nav>
         </>

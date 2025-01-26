@@ -2,10 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Mail, Key } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { useLogin } from "./Context";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
+    const { login, setLogin } = useLogin();
     const [loginData, setLoginData] = useState({
         name: "",
         password: "",
@@ -23,6 +27,40 @@ const Login = () => {
     const changeSignUpData = (e) => {
         setSignupData({ ...signupData, [e.target.name]: e.target.value });
     };
+    async function handleLogin(e) {
+        e.preventDefault();
+       try {
+           const response = await axios.post("http://localhost:5000/login", loginData);
+           setLoginData({
+               name: "",
+               password: ""
+           })
+            setLogin(true);
+            navigate("/");
+           console.log(response.data)
+        
+       } catch (error) {
+        if(error.response.data?.message) {
+            console.log(error.response.data.message);
+        }
+    }
+    }
+    async function handleSignup(e) {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:5000/signup", signupData);
+            setLoginData({
+                name: "",
+                email: "",
+                password: ""
+            })
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     return (
         <div className="flex items-center justify-center bg-[#fafafa] px-4">
             <div className="w-full max-w-md">
@@ -113,32 +151,11 @@ const Login = () => {
 
                             <Button
                                 type="submit"
-                                disabled={isLoading}
                                 className="w-full"
                                 size="lg"
+                                onClick={isLogin ? handleLogin : handleSignup}
                             >
-                                {isLoading ? (
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        className="flex items-center justify-center gap-2"
-                                    >
-                                        <motion.div
-                                            animate={{ rotate: 360 }}
-                                            transition={{
-                                                duration: 1,
-                                                repeat: Infinity,
-                                                ease: "linear",
-                                            }}
-                                            className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
-                                        />
-                                        Processing...
-                                    </motion.div>
-                                ) : isLogin ? (
-                                    "Sign in"
-                                ) : (
-                                    "Create account"
-                                )}
+                                {isLogin ? "Sign in" : "Sign up"}
                             </Button>
                         </motion.form>
                     </AnimatePresence>
