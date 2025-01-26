@@ -29,21 +29,21 @@ const Login = () => {
     };
     async function handleLogin(e) {
         e.preventDefault();
-       try {
-           const response = await axios.post("http://localhost:8000/login", loginData);
-           setLoginData({
-               name: "",
-               password: ""
-           })
+        try {
+            const response = await axios.post("http://localhost:8000/login", loginData);
+            setLoginData({
+                name: "",
+                password: ""
+            })
             setLogin(true);
             navigate("/");
-           console.log(response.data)
-        
-       } catch (error) {
-        if(error.response.data?.message) {
-            console.log(error.response.data.message);
+            console.log(response.data)
+
+        } catch (error) {
+            if (error.response.data?.message) {
+                console.log(error.response.data.message);
+            }
         }
-    }
     }
     async function handleSignup(e) {
         e.preventDefault();
@@ -55,9 +55,9 @@ const Login = () => {
                 password: ""
             })
             console.log(response.data.message);
-            
+
         } catch (error) {
-            if(error.response.data?.message) {
+            if (error.response.data?.message) {
                 console.log(error.response.data.message);
             }
         }

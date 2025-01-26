@@ -44,8 +44,6 @@ import Login from "./Login";
 import { useLogin } from "./Context";
 const Navbar = () => {
     const { login, setLogin } = useLogin();
-    console.log(login);
-
     const handleLogout = () => {
         setLogin(false);
         window.location.reload();
