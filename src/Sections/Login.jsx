@@ -30,7 +30,7 @@ const Login = () => {
     async function handleLogin(e) {
         e.preventDefault();
        try {
-           const response = await axios.post("http://localhost:5000/login", loginData);
+           const response = await axios.post("http://localhost:8000/login", loginData);
            setLoginData({
                name: "",
                password: ""
@@ -48,15 +48,18 @@ const Login = () => {
     async function handleSignup(e) {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/signup", signupData);
-            setLoginData({
+            const response = await axios.post("http://localhost:8000/signup", signupData);
+            setSignupData({
                 name: "",
                 email: "",
                 password: ""
             })
+            console.log(response.data.message);
             
         } catch (error) {
-            console.log(error);
+            if(error.response.data?.message) {
+                console.log(error.response.data.message);
+            }
         }
     }
 
