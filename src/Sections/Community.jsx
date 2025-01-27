@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Discuss from "./Discussion";
+import { useNavigate } from "react-router-dom";
 const languages = [
   {
     name: "Python",
@@ -40,7 +41,9 @@ const languages = [
     description: "Simple and efficient programming language",
   }
 ];
+
 const Community = () => {
+  const navigate = useNavigate();
   return (
     <>
     <section className="py-24 bg-muted/30">
@@ -86,7 +89,7 @@ const Community = () => {
                 </div>
                 <div className="flex justify-between ">
                   <p className="text-sm text-muted-foreground">{language.description}</p>
-                  <Button className={`${language.color} hover:${language.color}`}>Discuss Now</Button>
+                  <Button  onClick={() => navigate(`/community/${language.name}`)} className={`${language.color} hover:${language.color}`}>Discuss Now</Button>
                 </div>
               </div>
             </motion.div>
@@ -94,7 +97,6 @@ const Community = () => {
         </div>
       </div>
     </section>
-    <Discuss/>
     </>
   )
 }

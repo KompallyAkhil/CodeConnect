@@ -1,7 +1,8 @@
 import { Home } from "./Sections/Home";
 import Navbar from "./Sections/Navbar";
 import Community from "./Sections/Community";
-import { Routes , Route } from 'react-router-dom'
+import { Routes , Route } from 'react-router-dom';
+import LanguagePage from "./Sections/LanguagePage";
 export default function App() {
   return (
     <div>
@@ -9,6 +10,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/community" element={<Community/>}/>
+        <Route path="/community/:name" element={<LanguagePage />} />
       </Routes>
     </div>
   )
