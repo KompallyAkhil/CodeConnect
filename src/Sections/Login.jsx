@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import { useLogin } from "./Context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const { login, setLogin } = useLogin();
+    const { userID, setUserID } = useLogin();
     const [loginData, setLoginData] = useState({
         name: "",
         password: "",
@@ -35,10 +37,11 @@ const Login = () => {
                 name: "",
                 password: ""
             })
+            toast.success('Successfully Login');
             setLogin(true);
             navigate("/");
-            console.log(response.data)
-
+            setUserID(response.data.id);
+            console.log(response.data);
         } catch (error) {
             if (error.response.data?.message) {
                 console.log(error.response.data.message);
@@ -54,10 +57,12 @@ const Login = () => {
                 email: "",
                 password: ""
             })
+            toast.success('Successfully Login');
             console.log(response.data.message);
 
         } catch (error) {
             if (error.response.data?.message) {
+                toast.error(error.response.data.message);
                 console.log(error.response.data.message);
             }
         }
@@ -65,6 +70,9 @@ const Login = () => {
 
 
     return (
+        <>
+      
+      <Toaster/>
         <div className="flex items-center justify-center bg-[#fafafa] px-4">
             <div className="w-full max-w-md">
                 <motion.div
@@ -175,6 +183,7 @@ const Login = () => {
                 </motion.div>
             </div>
         </div>
+        </>
     );
 };
 
