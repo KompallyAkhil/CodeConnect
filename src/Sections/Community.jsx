@@ -41,9 +41,13 @@ const languages = [
     description: "Simple and efficient programming language",
   }
 ];
-
+import { useLogin } from "./Context";
 const Community = () => {
   const navigate = useNavigate();
+  // const {token} = useLogin();
+  // const dicussionChat = (chatName) => {
+  //   navigate(`/community/${chatName}`);
+  // }
   return (
     <>
     <section className="py-24 bg-muted/30">
