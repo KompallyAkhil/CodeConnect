@@ -44,6 +44,8 @@ const languages = [
 import { useLogin } from "./Context";
 const Community = () => {
   const navigate = useNavigate();
+  const { login } = useLogin();
+  console.log(login);
   // const {token} = useLogin();
   // const dicussionChat = (chatName) => {
   //   navigate(`/community/${chatName}`);
