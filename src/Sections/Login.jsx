@@ -10,10 +10,13 @@ const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    const { login, setLogin } = useLogin();
-    const { userId, setUserId } = useLogin();
-    const { userIdName , setUserIdName } = useLogin();
-    const { token , setToken } = useLogin();
+    const { 
+        login, setLogin, 
+        userId, setUserId, 
+        userIdName, setUserIdName, 
+        token, setToken 
+    } = useLogin();
+    
     const [loginData, setLoginData] = useState({
         name: "",
         password: "",
@@ -40,13 +43,10 @@ const Login = () => {
                 password: ""
             })
             toast.success('Successfully Login');
-            setLogin(true);
+            setLogin(true);        
             setUserId(response.data.id);
             setUserIdName(response.data.userName);
             setToken(response.data.token);
-            console.log(response.data.id);
-            console.log(response.data.userName);
-            console.log(response.data.token);
         } catch (error) {
             if (error.response.data?.message) {
                 console.log(error.response.data.message);

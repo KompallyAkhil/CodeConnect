@@ -46,10 +46,6 @@ const Community = () => {
   const navigate = useNavigate();
   const { login } = useLogin();
   console.log(login);
-  // const {token} = useLogin();
-  // const dicussionChat = (chatName) => {
-  //   navigate(`/community/${chatName}`);
-  // }
   return (
     <>
     <section className="py-24 bg-muted/30">
