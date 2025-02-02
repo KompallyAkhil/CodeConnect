@@ -63,20 +63,14 @@ const Login = () => {
                 password: ""
             })
             toast.success('Successfully Login');
-            console.log(response.data.message);
-
         } catch (error) {
             if (error.response.data?.message) {
                 toast.error(error.response.data.message);
-                console.log(error.response.data.message);
             }
         }
     }
-
-
     return (
         <>
-
             <Toaster />
             <div className="flex items-center justify-center bg-[#fafafa] px-4">
                 <div className="w-full max-w-md">
@@ -103,7 +97,6 @@ const Login = () => {
                                 exit={{ opacity: 0, x: isLogin ? 20 : -20 }}
                                 transition={{ duration: 0.2 }}
                                 className="space-y-4"
-
                             >
                                 <div className="space-y-1">
                                     <label

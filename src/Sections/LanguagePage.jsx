@@ -5,6 +5,7 @@ const LanguagePage = () => {
   const { name } = useParams();
 
   return (
+    <>
     <section className="py-24 bg-muted/30">
       <div className="container px-4 mx-auto text-center">
         <h1 className="text-4xl font-bold mb-6">Welcome to the {name} Community</h1>
@@ -14,6 +15,7 @@ const LanguagePage = () => {
         <Discuss channelName={name}/>
       </div>
     </section>
+    </>
   );
 };
 
