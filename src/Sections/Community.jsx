@@ -45,7 +45,6 @@ import { useLogin } from "./Context";
 const Community = () => {
   const navigate = useNavigate();
   const { login } = useLogin();
-  console.log(login);
   return (
     <>
     <section className="py-24 bg-muted/30">
