@@ -3,6 +3,7 @@ import { Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Discuss from "./Discussion";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 const languages = [
   {
     name: "Python",
@@ -45,8 +46,13 @@ import { useLogin } from "./Context";
 const Community = () => {
   const navigate = useNavigate();
   const { login } = useLogin();
+  const discussion = (e) => {
+    e.preventDefault();
+    toast.error("Please login to discuss");
+  }
   return (
     <>
+      <Toaster />
     <section className="py-24 bg-muted/30">
       <div className="container px-4 mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-14">
@@ -90,7 +96,7 @@ const Community = () => {
                 </div>
                 <div className="flex justify-between ">
                   <p className="text-sm text-muted-foreground">{language.description}</p>
-                  <Button  onClick={() => navigate(`/community/${language.name}`)} className={`${language.color} hover:${language.color}`}>Discuss Now</Button>
+                  <Button  onClick={login ? () => navigate(`/community/${language.name}`) : discussion} className={`${language.color} hover:${language.color}`}>Discuss Now</Button>
                 </div>
               </div>
             </motion.div>
