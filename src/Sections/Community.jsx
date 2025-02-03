@@ -48,7 +48,7 @@ const Community = () => {
   const { login } = useLogin();
   const discussion = (e) => {
     e.preventDefault();
-    toast.error("Please login to discuss");
+    toast.error("Please login to Chat");
   }
   return (
     <>
