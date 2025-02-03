@@ -14,7 +14,8 @@ const Login = () => {
         setLogin,
         setUserId,
         setUserIdName,
-        setToken
+        setToken,
+        setUserEmailId
     } = useLogin();
 
     const [loginData, setLoginData] = useState({
@@ -47,6 +48,7 @@ const Login = () => {
             setUserId(response.data.id);
             setUserIdName(response.data.userName);
             setToken(response.data.token);
+            setUserEmailId(response.data.userEmailId);
         } catch (error) {
             if (error.response.data?.message) {
                 console.log(error.response.data.message);
