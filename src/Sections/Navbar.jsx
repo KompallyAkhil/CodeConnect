@@ -29,6 +29,7 @@ const Navbar = () => {
     const handleLogout = () => {
         setLogin(false);
         toast.success('Successfully Logout');
+        localStorage.clear();
         window.location.assign('/');
     }
     return (
