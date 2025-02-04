@@ -4,12 +4,10 @@ import { User, Mail, Key } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLogin } from "./Context";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
-    const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(false);
+    
     const {
         setLogin,
         setUserId,
@@ -43,12 +41,12 @@ const Login = () => {
                 name: "",
                 password: ""
             })
-            toast.success('Successfully Login');
+            const decodeToken = JSON.parse(atob(response.data.jwtToken.split('.')[1]));
             setLogin(true);
-            setUserId(response.data.id);
-            setUserIdName(response.data.userName);
-            setToken(response.data.token);
-            setUserEmailId(response.data.userEmailId);
+            setUserId(decodeToken.id);
+            setUserIdName(decodeToken.userName);
+            setToken(decodeToken.token);
+            setUserEmailId(decodeToken.userEmailId);
         } catch (error) {
             if (error.response.data?.message) {
                 console.log(error.response.data.message);

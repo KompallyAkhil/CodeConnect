@@ -25,7 +25,7 @@ import logo from "./LightMode.png"
 import Login from "./Login";
 import { useLogin } from "./Context";
 const Navbar = () => {
-    const { login, setLogin , userIdName ,userEmailId } = useLogin();
+    const { login, setLogin, userIdName, userEmailId } = useLogin();
     const handleLogout = () => {
         setLogin(false);
         toast.success('Successfully Logout');
@@ -42,7 +42,7 @@ const Navbar = () => {
                             <h1 className="text-2xl ml-2 font-bold">CodeConnect</h1>
                         </div>
                     </div>
-                    <div className="flex gap-10  font-bold text-primary">
+                    <div className="flex gap-10 font-bold text-primary">
                         <Link to="/" >
                             <p>Home</p>
                         </Link>
@@ -63,7 +63,7 @@ const Navbar = () => {
                         <div>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button variant="outline"  className="relative h-12 w-12 rounded-full">
+                                    <Button variant="outline" className="relative h-12 w-12 rounded-full">
                                         <User className="h-20 w-20" />
                                     </Button>
                                 </DropdownMenuTrigger>
