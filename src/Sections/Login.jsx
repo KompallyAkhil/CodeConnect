@@ -4,7 +4,8 @@ import { User, Mail, Key } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLogin } from "./Context";
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+import { jwtDecode } from "jwt-decode";
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
     
@@ -42,25 +43,26 @@ const Login = () => {
                 password: ""
             })
             toast.success('Logged In Successfully');
-            const decodeToken = JSON.parse(atob(response.data.jwtToken.split('.')[1]));
+            const token = jwtDecode(response.data.jwtToken);
             const userData = {
-                token: decodeToken.token,
-                userId: decodeToken.id,
-                userName: decodeToken.userName,
-                userEmailId: decodeToken.userEmailId
+                token: token.token,
+                userId: token.id,
+                userName: token.userName,
+                userEmailId: token.userEmailId
             };
-            localStorage.setItem('userData', JSON.stringify(userData));
+            localStorage.setItem('userData',JSON.stringify(userData));
             setLogin(true);
-            setUserId(decodeToken.id);
-            setUserIdName(decodeToken.userName);
-            setToken(decodeToken.token);
-            setUserEmailId(decodeToken.userEmailId);
+            setUserId(token.id);
+            setUserIdName(token.userName);
+            setToken(token.token);
+            setUserEmailId(token.userEmailId);
         } catch (error) {
             if (error.response.data?.message) {
                 toast.error(error.response.data.message);
             }
         }
     }
+ 
     async function handleSignup(e) {
         e.preventDefault();
         try {
@@ -164,7 +166,6 @@ const Login = () => {
                                         onChange={isLogin ? changeLoginData : changeSignUpData}
                                     />
                                 </div>
-
                                 <Button
                                     type="submit"
                                     className="w-full"

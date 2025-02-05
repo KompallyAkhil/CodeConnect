@@ -2,10 +2,16 @@ import { useState, useEffect } from 'react';
 import { useCreateChatClient, Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/v2/index.css';
 import { useLogin } from './Context';
+import { useNavigate } from 'react-router-dom';
 const Discuss = ({ channelName }) => {
+  const navigate = useNavigate();
   const [channel, setChannel] = useState(null);
-  const [connected, setConnected] = useState(false);
   const { userId, userIdName, token } = useLogin();
+  useEffect(()=>{
+    if(!token){
+      navigate('/');
+    }
+  },[token])
   const user = {
     id: userId,
     name: userIdName,
