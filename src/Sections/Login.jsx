@@ -50,7 +50,6 @@ const Login = () => {
                 userName: token.userName,
                 userEmailId: token.userEmailId
             };
-            localStorage.setItem('userData',JSON.stringify(userData));
             setLogin(true);
             setUserId(token.id);
             setUserIdName(token.userName);
