@@ -8,13 +8,14 @@ import toast from 'react-hot-toast';
 import { jwtDecode } from "jwt-decode";
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
-    
+  
     const {
         setLogin,
         setUserId,
         setUserIdName,
         setToken,
-        setUserEmailId
+        setUserEmailId,
+        setTime
     } = useLogin();
 
     const [loginData, setLoginData] = useState({
@@ -44,17 +45,20 @@ const Login = () => {
             })
             toast.success('Logged In Successfully');
             const token = jwtDecode(response.data.jwtToken);
-            const userData = {
-                token: token.token,
-                userId: token.id,
-                userName: token.userName,
-                userEmailId: token.userEmailId
-            };
+            // console.log(token.exp)
+            // const userData = {
+            //     token: token.token,
+            //     userId: token.id,
+            //     userName: token.userName,
+            //     userEmailId: token.userEmailId,
+            //     tokenExpiration : token.exp
+            // };
             setLogin(true);
             setUserId(token.id);
             setUserIdName(token.userName);
             setToken(token.token);
             setUserEmailId(token.userEmailId);
+            setTime(token.exp);
         } catch (error) {
             if (error.response.data?.message) {
                 toast.error(error.response.data.message);

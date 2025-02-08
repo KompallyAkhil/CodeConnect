@@ -35,16 +35,19 @@ const Navbar = () => {
             <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                 <div className="container flex h-16 items-center justify-between px-4 mx-auto">
                     <div>
-                        <div className="flex items-center">
+                        <Link
+                            to="/"
+                            className="flex items-center space-x-2 transition-transform hover:scale-105"
+                        >
                             <img className="w-10 h-10" src={logo} />
-                            <h1 className="text-2xl ml-2 font-bold">CodeConnect</h1>
-                        </div>
+                            <span className="text-2xl ml-2 font-bold">CodeConnect</span>
+                        </Link>
                     </div>
-                    <div className="flex gap-10 font-bold text-primary">
-                        <Link to="/" >
+                    <div className="hidden md:flex gap-10 font-bold text-primary">
+                        <Link to="/" className="hover:text-primary/80 transition-colors">
                             <p>Home</p>
                         </Link>
-                        <Link to="/community">
+                        <Link to="/community" className="hover:text-primary/80 transition-colors">
                             <p>Communities</p>
                         </Link>
                     </div>

@@ -23,10 +23,10 @@ const languages = [
     description: "Write once, run anywhere",
   },
   {
-    name: "C++",
-    color: "bg-purple-500",
-    users: "1.2M",
-    description: "Powerful system programming language",
+    name: "Rust",
+    color: "bg-orange-600",
+    users: "1.2M+",
+    description: "A fast system programming language",
   },
   {
     name: "C",

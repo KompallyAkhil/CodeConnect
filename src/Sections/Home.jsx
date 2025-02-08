@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Meteors } from "@/components/ui/meteors";
 import { Features } from "./Feartues";
 import { Link } from "react-router-dom";
+import { CodeSnippets } from "./CodeSnippets";
 export const Home = () => {
     return (
         <>
@@ -66,7 +67,7 @@ export const Home = () => {
                 </span>
             </div>
             <Features />
-            
+            <CodeSnippets/>
         </>
     );
 };
