@@ -38,14 +38,14 @@ const Login = () => {
     async function handleLogin(e) {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8000/login", loginData);
+            const response = await axios.post("https://codeconnect-backend-xml4.onrender.com/login", loginData);
             setLoginData({
                 name: "",
                 password: ""
             })
             toast.success('Logged In Successfully');
             const token = jwtDecode(response.data.jwtToken);
-            console.log(token.exp)
+            // console.log(token.exp)
             // const userData = {
             //     token: token.token,
             //     userId: token.id,
@@ -69,7 +69,7 @@ const Login = () => {
     async function handleSignup(e) {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8000/signup", signupData);
+            const response = await axios.post("https://codeconnect-backend-xml4.onrender.com/signup", signupData);
             setSignupData({
                 name: "",
                 email: "",
