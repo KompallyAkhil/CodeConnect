@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useCreateChatClient, Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/v2/index.css';
+import { EmojiPicker } from "stream-chat-react/emojis";
 import { useLogin } from './Context';
 import { useNavigate } from 'react-router-dom';
 const Discuss = ({ channelName }) => {
@@ -39,7 +40,7 @@ const Discuss = ({ channelName }) => {
 
   return (
     <Chat client={client}>
-      <Channel channel={channel}>
+      <Channel EmojiPicker={EmojiPicker} channel={channel}>
         <Window>
           <ChannelHeader />
           <MessageList />

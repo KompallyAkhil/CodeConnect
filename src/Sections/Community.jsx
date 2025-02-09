@@ -44,7 +44,7 @@ const languages = [
 import { useLogin } from "./Context";
 const Community = () => {
   const navigate = useNavigate();
-  const { login } = useLogin();
+  const { token } = useLogin();
   const discussion = (e) => {
     e.preventDefault();
     toast.error("Please login to Chat");
@@ -95,7 +95,7 @@ const Community = () => {
                   </div>
                   <div className="flex justify-between ">
                     <p className="text-sm text-muted-foreground">{language.description}</p>
-                    <Button onClick={login ? () => navigate(`/community/${language.name}`) : discussion} className={`${language.color} hover:${language.color}`}>Discuss Now</Button>
+                    <Button onClick={token ? () => navigate(`/community/${language.name}`) : discussion} className={`${language.color} hover:${language.color}`}>Discuss Now</Button>
                   </div>
                 </div>
               </motion.div>

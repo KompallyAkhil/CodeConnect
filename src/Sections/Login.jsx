@@ -45,7 +45,7 @@ const Login = () => {
             })
             toast.success('Logged In Successfully');
             const token = jwtDecode(response.data.jwtToken);
-            // console.log(token.exp)
+            console.log(token.exp)
             // const userData = {
             //     token: token.token,
             //     userId: token.id,

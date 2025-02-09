@@ -22,18 +22,17 @@ import logo from "./LightMode.png"
 import Login from "./Login";
 import { useLogin } from "./Context";
 const Navbar = () => {
-    const { login, setLogin, userIdName, userEmailId } = useLogin();
+    const { setLogin, userIdName , userEmailId , token } = useLogin();
     const handleLogout = () => {
         setLogin(false);
         toast.success('Successfully Logout');
-        localStorage.clear();
         window.location.assign('/');
     }
     return (
         <>
             <Toaster />
-            <nav className="smax-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="container flex h-16 items-center justify-between px-4 mx-auto">
+            <nav className="sticky top-0 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/50  ">
+                <div className="sticky top-0 z-10 container flex h-16 items-center justify-between px-4 mx-auto">
                     <div>
                         <Link
                             to="/"
@@ -51,7 +50,7 @@ const Navbar = () => {
                             <p>Communities</p>
                         </Link>
                     </div>
-                    {!login ? (
+                    {!token ? (
                         <Dialog>
                             <DialogTrigger asChild>
                                 <Button>Sign In</Button>
