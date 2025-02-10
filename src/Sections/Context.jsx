@@ -22,8 +22,6 @@ export const LoginProvider = ({children}) => {
             }
             else{
                 const remainingTime = (time - currentTime) * 1000;
-                // console.log(parseInt(remainingTime));
-                // console.log(`Token will expire in ${parseInt(remainingTime)} ms`);
                 const timeoutId = setTimeout(() => {
                     toast.error('Session expired');
                     setToken("");
