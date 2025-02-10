@@ -31,7 +31,7 @@ const Navbar = () => {
     return (
         <>
             <Toaster />
-            <nav className="block sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-8 bg-white shadow-md  ">
+            <nav className="block sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-8 bg-white shadow-md git">
                 <div className="sticky top-0 z-10 container flex h-16 items-center justify-between px-4 mx-auto">
                     <div>
                         <Link
