@@ -46,3 +46,7 @@ Check out the live demo of CodeConnect:  [CodeConnect Live](https://code-connect
    nodemon index.js
 
 Stay Connected 🌐
+ - Project Updates: Follow our journey on GitHub for regular updates and improvements.
+ - Need Help?: If you have any questions or encounter issues, feel free to open a GitHub issue or contact us directly.
+
+Happy coding! 💻🎉
