@@ -15,6 +15,10 @@ Code Connect is a modern chat application built using GetStream for real-time me
 
  - **Responsive Design**: Works seamlessly across different devices.
 
+## Live Demo 🌐
+
+Check out the live demo of FitGenie:  [CodeConnect Live](https://code-connect-beta.vercel.app/)  
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
