@@ -1,6 +1,8 @@
 # CodeConnect 💻
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Code Connect is a modern chat application built using GetStream for real-time messaging. It features a sleek UI powered by shadcn/ui components and lucide-react icons. The app also includes authentication to ensure secure communication between users.
+
+
 
 Currently, two official plugins are available:
 
