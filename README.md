@@ -23,9 +23,11 @@ Check out the live demo of CodeConnect:  [CodeConnect Live](https://code-connect
 ## Tech Stack 🛠️
 
 ### Frontend:
-- **React.js**: Building dynamic and responsive user interfaces.
-- **React Router**: Managing navigation between pages.
-- **CSS Modules**: Modular and scoped styling for components.
+- **React.js**: A JavaScript library for building user interfaces..
+- **Tailwind CSS** - A utility-first CSS framework for styling components.
+- **Lucide-react** - A collection of beautiful, customizable icons for React.
+- **Framer Motion** - A library for declarative animations in React.
+- **ShadCN/UI** - A set of customizable UI components for building modern web applications.
 - **React Toastify**: Displaying interactive notifications to enhance user experience.
 
 
