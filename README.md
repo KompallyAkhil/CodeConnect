@@ -11,9 +11,9 @@ Code Connect is a modern chat application built using GetStream for real-time me
 
  - **Lucide-react Icons**: Provides clean and stylish icons.
 
- -**User Authentication**: Secure login and registration system.
+ - **User Authentication**: Secure login and registration system.
 
-Responsive Design: Works seamlessly across different devices.
+ - **Responsive Design**: Works seamlessly across different devices.
 
 Currently, two official plugins are available:
 
