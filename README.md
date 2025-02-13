@@ -17,7 +17,31 @@ Code Connect is a modern chat application built using GetStream for real-time me
 
 ## Live Demo 🌐
 
-Check out the live demo of FitGenie:  [CodeConnect Live](https://code-connect-beta.vercel.app/)  
+Check out the live demo of CodeConnect:  [CodeConnect Live](https://code-connect-beta.vercel.app/)  
+
+
+## Tech Stack 🛠️
+
+### Frontend:
+- **React.js**: Building dynamic and responsive user interfaces.
+- **React Router**: Managing navigation between pages.
+- **CSS Modules**: Modular and scoped styling for components.
+- **React Toastify**: Displaying interactive notifications to enhance user experience.
+
+
+## Installation and Setup 🖥️
+
+### Steps:
+1. Clone the repository:
+   ```bash
+   https://github.com/KompallyAkhil/CodeConnect
+   cd frontend
+   npm run dev
+2. Clone the repository:
+   ```bash
+   https://github.com/KompallyAkhil/CodeConnect-Backend
+   cd backend
+   nodemon index.js
 
 Currently, two official plugins are available:
 
