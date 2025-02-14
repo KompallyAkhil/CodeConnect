@@ -6,9 +6,10 @@ import { useLogin } from "./Context";
 import axios from "axios";
 import toast from 'react-hot-toast';
 import { jwtDecode } from "jwt-decode";
+import { Loader2 } from "lucide-react";
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
-  
+    const [isloading, setIsLoading] = useState(false);
     const {
         setLogin,
         setUserId,
@@ -37,6 +38,7 @@ const Login = () => {
     };
     async function handleLogin(e) {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const response = await axios.post("https://codeconnect-backend-xml4.onrender.com/login", loginData);
             setLoginData({
@@ -45,14 +47,6 @@ const Login = () => {
             })
             toast.success('Logged In Successfully');
             const token = jwtDecode(response.data.jwtToken);
-            // console.log(token.exp)
-            // const userData = {
-            //     token: token.token,
-            //     userId: token.id,
-            //     userName: token.userName,
-            //     userEmailId: token.userEmailId,
-            //     tokenExpiration : token.exp
-            // };
             setLogin(true);
             setUserId(token.id);
             setUserIdName(token.userName);
@@ -64,10 +58,14 @@ const Login = () => {
                 toast.error(error.response.data.message);
             }
         }
+        finally {
+            setIsLoading(false);
+        }
     }
- 
+
     async function handleSignup(e) {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const response = await axios.post("https://codeconnect-backend-xml4.onrender.com/signup", signupData);
             setSignupData({
@@ -75,11 +73,14 @@ const Login = () => {
                 email: "",
                 password: ""
             })
-            toast.success('Successfully Login');
+            toast.success('Registered Successfully');
         } catch (error) {
             if (error.response.data?.message) {
                 toast.error(error.response.data.message);
             }
+        }
+        finally {
+            setIsLoading(false);
         }
     }
     return (
@@ -174,9 +175,12 @@ const Login = () => {
                                     className="w-full"
                                     size="lg"
                                     onClick={isLogin ? handleLogin : handleSignup}
+                                    disabled={isloading}
                                 >
-                                    {isLogin ? "Sign in" : "Sign up"}
+                                    {isloading ? <Loader2 className="h-6 w-6 animate-spin text-current" /> : (isLogin ? "Sign in" : "Sign up")}
                                 </Button>
+
+
                             </motion.form>
                         </AnimatePresence>
                         <div className="mt-6 text-center">
