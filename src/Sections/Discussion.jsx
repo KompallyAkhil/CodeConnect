@@ -4,7 +4,9 @@ import 'stream-chat-react/dist/css/v2/index.css';
 import { EmojiPicker } from "stream-chat-react/emojis";
 import { useLogin } from './Context';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from "@/components/ui/theme-provider"
 const Discuss = ({ channelName }) => {
+  const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
   const [channel, setChannel] = useState(null);
   const { userId, userIdName, token } = useLogin();

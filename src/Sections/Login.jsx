@@ -85,18 +85,18 @@ const Login = () => {
     }
     return (
         <>
-            <div className="flex items-center justify-center bg-[#fafafa] px-4">
+            <div className="flex items-center justify-center px-4">
                 <div className="w-full max-w-md">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-white rounded-xl shadow-sm border border-gray-100 p-8"
+                        className="rounded-xl shadow-sm border p-8"
                     >
                         <div className="text-center mb-8">
-                            <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+                            <h1 className="text-2xl font-bold tracking-tight">
                                 {isLogin ? "Welcome back" : "Create account"}
                             </h1>
-                            <p className="mt-2 text-sm text-gray-500">
+                            <p className="mt-2 text-sm">
                                 {isLogin
                                     ? "Enter your details to sign in"
                                     : "Enter your details to get started"}
@@ -114,7 +114,7 @@ const Login = () => {
                                 <div className="space-y-1">
                                     <label
                                         htmlFor="name"
-                                        className="text-sm font-medium text-gray-700 flex items-center gap-2"
+                                        className="text-sm font-medium flex items-center gap-2"
                                     >
                                         <User className="w-4 h-4" />
                                         Name
@@ -124,7 +124,7 @@ const Login = () => {
                                         id="name"
                                         name="name"
                                         required
-                                        className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-200"
+                                        className="w-full px-3 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-200"
                                         placeholder="John Doe"
                                         value={isLogin ? loginData.name : signupData.name}
                                         onChange={isLogin ? changeLoginData : changeSignUpData}
@@ -134,7 +134,7 @@ const Login = () => {
                                     <div className="space-y-1">
                                         <label
                                             htmlFor="email"
-                                            className="text-sm font-medium text-gray-700 flex items-center gap-2"
+                                            className="text-sm font-medium flex items-center gap-2"
                                         >
                                             <Mail className="w-4 h-4" />
                                             Email
@@ -144,7 +144,7 @@ const Login = () => {
                                             id="email"
                                             name="email"
                                             required
-                                            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-200"
+                                            className="w-full px-3 py-2 border text-black border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-200"
                                             placeholder="john@example.com"
                                             value={signupData.email}
                                             onChange={changeSignUpData}
@@ -154,7 +154,7 @@ const Login = () => {
                                 <div className="space-y-1">
                                     <label
                                         htmlFor="password"
-                                        className="text-sm font-medium text-gray-700 flex items-center gap-2"
+                                        className="text-sm font-medium flex items-center gap-2"
                                     >
                                         <Key className="w-4 h-4" />
                                         Password
@@ -164,7 +164,7 @@ const Login = () => {
                                         id="password"
                                         name="password"
                                         required
-                                        className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-200"
+                                        className="w-full px-3 py-2 border text-black border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-200"
                                         placeholder="••••••••"
                                         value={isLogin ? loginData.password : signupData.password}
                                         onChange={isLogin ? changeLoginData : changeSignUpData}
@@ -174,6 +174,7 @@ const Login = () => {
                                     type="submit"
                                     className="w-full"
                                     size="lg"
+                                    
                                     onClick={isLogin ? handleLogin : handleSignup}
                                     disabled={isloading}
                                 >
@@ -186,7 +187,7 @@ const Login = () => {
                         <div className="mt-6 text-center">
                             <button
                                 onClick={() => setIsLogin(!isLogin)}
-                                className="text-sm text-gray-500 hover:text-black transition-colors duration-200"
+                                className="text-sm  hover:text-gray-400 transition-colors duration-200"
                             >
                                 {isLogin
                                     ? "Don't have an account? Sign up"

@@ -12,7 +12,7 @@ export const LoginProvider = ({children}) => {
     const [token, setToken] = useState("");
     const [userEmailId, setUserEmailId] = useState("");
     const [time,setTime] = useState();
-    useEffect(()=>{
+    useEffect(() => {
         if(token){
             const currentTime = Date.now() / 1000;
             if(time < currentTime){
