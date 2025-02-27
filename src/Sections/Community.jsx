@@ -47,7 +47,7 @@ const Community = () => {
   const { token } = useLogin();
   const discussion = (e) => {
     e.preventDefault();
-    toast.error("Please login to Chat");
+    toast.error("Login to discuss");
   }
   return (
     <>
