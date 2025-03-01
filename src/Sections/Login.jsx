@@ -40,7 +40,7 @@ const Login = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            const response = await axios.post("https://codeconnect-backend-xml4.onrender.com/login", loginData);
+            const response = await axios.post("https://code-connect-backend-one.vercel.app/login", loginData);
             setLoginData({
                 name: "",
                 password: ""
@@ -67,7 +67,7 @@ const Login = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            const response = await axios.post("https://codeconnect-backend-xml4.onrender.com/signup", signupData);
+            const response = await axios.post("https://code-connect-backend-one.vercel.app/signup", signupData);
             setSignupData({
                 name: "",
                 email: "",
