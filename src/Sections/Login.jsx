@@ -7,6 +7,19 @@ import axios from "axios";
 import toast from 'react-hot-toast';
 import { jwtDecode } from "jwt-decode";
 import { Loader2 } from "lucide-react";
+import { z } from "zod";
+const loginSchema = z.object({
+    name: z.string().min(1, "Username is required"),
+    password: z.string().min(6, "Password must be at least 6 characters"),
+});
+const signupSchema = z.object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    email: z.string().email("Invalid email address"),
+    password: z.string()
+        .min(6, "Password must be at least 6 characters")
+        .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+        .regex(/[0-9]/, "Password must contain at least one number"),
+});
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
     const [isloading, setIsLoading] = useState(false);
@@ -18,7 +31,7 @@ const Login = () => {
         setUserEmailId,
         setTime
     } = useLogin();
-
+    const [errors, setErrors] = useState({});
     const [loginData, setLoginData] = useState({
         name: "",
         password: "",
@@ -31,13 +44,55 @@ const Login = () => {
 
     const changeLoginData = (e) => {
         setLoginData({ ...loginData, [e.target.name]: e.target.value });
+        if (errors[e.target.name]) {
+            setErrors({ ...errors, [e.target.name]: null });
+        }
     };
 
     const changeSignUpData = (e) => {
         setSignupData({ ...signupData, [e.target.name]: e.target.value });
+        if (errors[e.target.name]) {
+            setErrors({ ...errors, [e.target.name]: null });
+        }
+    };
+
+    const validateLoginData = () => {
+        try {
+            loginSchema.parse(loginData);
+            setErrors({});
+            return true;
+        } catch (error) {
+            if (error instanceof z.ZodError) {
+                const fieldErrors = {};
+                error.errors.forEach((err) => {
+                    fieldErrors[err.path[0]] = err.message;
+                });
+                setErrors(fieldErrors);
+            }
+            return false;
+        }
+    };
+     const validateSignupData = () => {
+        try {
+            signupSchema.parse(signupData);
+            setErrors({});
+            return true;
+        } catch (error) {
+            if (error instanceof z.ZodError) {
+                const fieldErrors = {};
+                error.errors.forEach((err) => {
+                    fieldErrors[err.path[0]] = err.message;
+                });
+                setErrors(fieldErrors);
+            }
+            return false;
+        }
     };
     async function handleLogin(e) {
         e.preventDefault();
+           if (!validateLoginData()) {
+            return;
+        }
         setIsLoading(true);
         try {
             const response = await axios.post("https://code-connect-backend-one.vercel.app/login", loginData);
@@ -65,6 +120,9 @@ const Login = () => {
 
     async function handleSignup(e) {
         e.preventDefault();
+        if (!validateSignupData()) {
+            return;
+        }
         setIsLoading(true);
         try {
             const response = await axios.post("https://code-connect-backend-one.vercel.app/signup", signupData);
@@ -83,6 +141,10 @@ const Login = () => {
             setIsLoading(false);
         }
     }
+     const toggleLoginMode = () => {
+        setErrors({});
+        setIsLogin(!isLogin);
+    };
     return (
         <>
             <div className="flex items-center justify-center px-4">
@@ -130,6 +192,9 @@ const Login = () => {
                                         onChange={isLogin ? changeLoginData : changeSignUpData}
                                     />
                                 </div>
+                                {errors.name && (
+                                        <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                                    )}
                                 {!isLogin && (
                                     <div className="space-y-1">
                                         <label
@@ -151,6 +216,9 @@ const Login = () => {
                                         />
                                     </div>
                                 )}
+                                {errors.email && (
+                                            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                                        )}
                                 <div className="space-y-1">
                                     <label
                                         htmlFor="password"
@@ -170,11 +238,15 @@ const Login = () => {
                                         onChange={isLogin ? changeLoginData : changeSignUpData}
                                     />
                                 </div>
+                                                                    {errors.password && (
+                                        <p className="text-red-500 text-xs mt-1">{errors.password}</p>
+                                    )}
+
                                 <Button
                                     type="submit"
                                     className="w-full"
                                     size="lg"
-                                    
+
                                     onClick={isLogin ? handleLogin : handleSignup}
                                     disabled={isloading}
                                 >
