@@ -72,7 +72,7 @@ const Login = () => {
             return false;
         }
     };
-     const validateSignupData = () => {
+    const validateSignupData = () => {
         try {
             signupSchema.parse(signupData);
             setErrors({});
@@ -90,7 +90,7 @@ const Login = () => {
     };
     async function handleLogin(e) {
         e.preventDefault();
-           if (!validateLoginData()) {
+        if (!validateLoginData()) {
             return;
         }
         setIsLoading(true);
@@ -141,7 +141,7 @@ const Login = () => {
             setIsLoading(false);
         }
     }
-     const toggleLoginMode = () => {
+    const toggleLoginMode = () => {
         setErrors({});
         setIsLogin(!isLogin);
     };
@@ -193,8 +193,8 @@ const Login = () => {
                                     />
                                 </div>
                                 {errors.name && (
-                                        <p className="text-red-500 text-xs mt-1">{errors.name}</p>
-                                    )}
+                                    <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                                )}
                                 {!isLogin && (
                                     <div className="space-y-1">
                                         <label
@@ -217,8 +217,8 @@ const Login = () => {
                                     </div>
                                 )}
                                 {errors.email && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
-                                        )}
+                                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                                )}
                                 <div className="space-y-1">
                                     <label
                                         htmlFor="password"
@@ -238,9 +238,9 @@ const Login = () => {
                                         onChange={isLogin ? changeLoginData : changeSignUpData}
                                     />
                                 </div>
-                                                                    {errors.password && (
-                                        <p className="text-red-500 text-xs mt-1">{errors.password}</p>
-                                    )}
+                                {errors.password && (
+                                    <p className="text-red-500 text-xs mt-1">{errors.password}</p>
+                                )}
 
                                 <Button
                                     type="submit"
