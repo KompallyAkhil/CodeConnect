@@ -58,7 +58,7 @@ const Login = () => {
 
     const validateLoginData = () => {
         try {
-            loginSchema.parse(loginData);
+            loginSchema.safeParse(loginData);
             setErrors({});
             return true;
         } catch (error) {
@@ -74,7 +74,7 @@ const Login = () => {
     };
     const validateSignupData = () => {
         try {
-            signupSchema.parse(signupData);
+            signupSchema.safeParse(signupData);
             setErrors({});
             return true;
         } catch (error) {
